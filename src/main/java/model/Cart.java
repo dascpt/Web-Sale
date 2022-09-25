@@ -34,6 +34,16 @@ public class Cart {
 		items.add(ci);
 	}
 	
+	//sub quantity
+	public void sub(Product ci) {
+		for(Product x : items) {
+			if(ci.getId() == x.getId()) {
+				x.setNumber(x.getNumber() - 1);
+				return;
+			}
+		}
+	}
+	
 	//remove a product from cart
 	public void remove(int id) {
 		for(Product x: items) {

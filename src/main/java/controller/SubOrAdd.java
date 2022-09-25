@@ -47,8 +47,11 @@ public class SubOrAdd extends HttpServlet {
 			
 			Cart c = (Cart) session.getAttribute("cart");
 			
-			if(num == -1 && c.getQuantityById(id) <= 1) {
-				c.remove(id);				
+			if(num == -1) {
+				c.sub(p);
+				if(c.getQuantityById(id) == 0) {
+					c.remove(id);
+				}
 			}else if(num == 1) {
 				c.add(p);
 			}
